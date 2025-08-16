@@ -35,3 +35,13 @@ export const updateTaskStatus = (id: string, status: TaskStatus): Task | null =>
   }
   return null;
 };
+
+export const updateTask = (id: string, updatedTask: { title: string; description: string }): Task | null => {
+  const task = tasks.find(t => t.id === id);
+  if (task) {
+    task.title = updatedTask.title;
+    task.description = updatedTask.description;
+    return task;
+  }
+  return null;
+};
